@@ -1,0 +1,17 @@
+{
+  "name": "h5-video-play",
+  "version": "1.0.0",
+  "description": "视频播放组件",
+  "main": "dist/h5video.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-cli": "^3.2.3"
+  }
+}
