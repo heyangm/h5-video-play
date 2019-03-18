@@ -6,15 +6,15 @@
 
 安装
 ``` bash
- npm install H5video
+ npm install h5-video-play
  //or 
- year add H5Video
+ year add h5-video-play
 ```
 引用
 ```js
-import H5video from 'H5video'
+import H5video from 'h5-video-play'
 var video = new H5video('#videoContainer',{
-    src :"",
+    src : "./video.mp4",
 })
 video.play()
 
@@ -25,7 +25,7 @@ video.play()
 <script src="./dist/h5video.js"></script>
 <script  type="text/javascript">
     var video = new H5video('#videoContainer',{
-        src :"",
+        src : "./video.mp4",
     })
 </script>
 ```
@@ -40,10 +40,12 @@ video.play()
 |options.poster | <code>string</code> |    视频封面          |
 |options.controls | <code>Boolean</code> | 视频控制条，默认false 无 |
 |options.canCover | <code>Boolean</code> | 安卓设备中，视频元素是否可被覆盖，默认false |  
+|options.iosInline | <code>Boolean</code> | 部分ios浏览器中内联播放兼容，默认false 不兼容。|
 
-
-注意：1.ios中视频一致为内联播放，部分手机浏览器中弹出弹窗播放，如uc浏览器
-     2. options.canCover选项:false时，设置内联播放，部分安卓机会自动全屏播放，视频元素上无法覆盖其他元素;true时，安卓设备在x5内核浏览器（如微信、qq）中，启用x5播放器播放，但仍会有弹窗效果，视频元素上可覆盖其他元素。
+注意：
+ 1. ios中视频一致为内联播放，部分手机浏览器中弹出弹窗播放，如uc浏览器
+ 2. options.canCover选项:默认false，设置内联播放，部分安卓机会自动全屏播放，视频元素上无法覆盖其他元素;true时，安卓设备在x5内核浏览器（如微信、qq）中，启用x5播放器播放，但仍会有弹窗效果，视频元素上可覆盖其他元素。
+ 3. options.iosInline选项： 默认false，部分ios浏览器全屏播放(如蜗牛客户端)；true时，视频需要点击其他元素控制播放，点击视频自身播放控件播放时其他方法回调失败。
 
 #### video.play()
     控制视频播放
@@ -52,7 +54,7 @@ video.play()
     控制视频暂停
 
 #### video.status()
-    返回视频当前状态： 'puased' 暂停; 'playing' 正在播放
+    返回视频当前状态。返回值： 'puased' 暂停; 'playing' 正在播放
 
 #### video.currentTime(time) 
     获取/设置 视频当前播放位置 

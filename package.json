@@ -1,6 +1,6 @@
 {
   "name": "h5-video-play",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "视频播放组件",
   "main": "dist/h5video.js",
   "module": "es/index.js",
@@ -9,9 +9,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
-  "author": "",
+  "author": "hym",
   "license": "ISC",
   "devDependencies": {
     "webpack-cli": "^3.2.3"
+  },
+  "dependencies": {
+    "iphone-inline-video": "^2.2.2"
   }
 }

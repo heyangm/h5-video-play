@@ -1,6 +1,6 @@
 import enableInlineVideo from 'iphone-inline-video'
 const ua = navigator.userAgent
-const isIphone = /ihpone/ig.test(ua);
+const isIphone = /iphone/ig.test(ua);
 const isAndroid = /android/ig.test(ua)
 export default class H5video {
     /****
@@ -19,6 +19,7 @@ export default class H5video {
         this.poster = options.poster || "";
         this.controls = options.controls || false;
         this.canCover = options.canCover || false;
+        this.iosInline = options.iosInline || false;
         this.video = null;
         this.init();
     }
@@ -56,7 +57,7 @@ export default class H5video {
         this.container.innerHTML += videoHtml
         this.video = document.getElementById('h5video')
         if(this.controls){this.video.controls = true}
-        if(isIphone){enableInlineVideo(this.video)}
+        if(isIphone && this.iosInline){enableInlineVideo(this.video)}
     }
 
     play(){
