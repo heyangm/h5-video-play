@@ -11,6 +11,7 @@ export default class H5video {
      * @param {Boolean} options.controls   视频控制条，默认无
      * @param {Boolean} options.canCover   视频元素是否可被覆盖，默认false  
      ***(false时，设置内联播放，部分安卓机会自动全屏播放。true时，安卓设备x5内核浏览器中启用x5播放器播放，仍会有弹窗效果)
+     ***@param {Boolean} options.iosInline 兼容部分ios浏览器(如蜗牛app)内联播放，默认false,为true时，需通过其他元素触发播放视频
      */
     constructor(container,options){    
         this.options = options || {};

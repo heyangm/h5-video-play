@@ -1,6 +1,6 @@
 {
   "name": "h5-video-play",
-  "version": "1.0.3",
+  "version": "1.1.1",
   "description": "视频播放组件",
   "main": "dist/h5video.js",
   "module": "es/index.js",
