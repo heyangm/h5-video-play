@@ -18,14 +18,13 @@
         poster:'',
         controls: true,
         canCover : true,
-        iosInline :true
-    })
-    video.onPlaying(function(){
-        console.log("playing")
-    })
-    
-    video.ended(function(){
-        console.log("end")
+        iosInline :true,
+        onPlaying : function(){
+            console.log("startplay")
+        },
+        onEnded : function(){
+            console.log("ended")
+        }
     })
     document.querySelector("button").addEventListener('click',function(){
         video.play()

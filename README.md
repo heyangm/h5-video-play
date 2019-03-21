@@ -41,16 +41,18 @@ video.play()
 |options.controls | <code>Boolean</code> | 视频控制条，默认false 无 |
 |options.canCover | <code>Boolean</code> | 安卓设备中，视频元素是否可被覆盖，默认false |  
 |options.iosInline | <code>Boolean</code> | 部分ios浏览器中内联播放兼容，默认false 不兼容。|
+|options.onPlaying |<code>Function</code> | 视频开始播放时回调 |
+|options.onEnded |<code>Function</code> | 视频结束播放时回调。安卓开始X5播放器时，默认隐藏video元素来退出 |
 
 注意：
  1. ios中视频一致为内联播放，部分手机浏览器中弹出弹窗播放，如uc浏览器
- 2. options.canCover选项:默认false，设置内联播放，部分安卓机会自动全屏播放，视频元素上无法覆盖其他元素;true时，安卓设备在x5内核浏览器（如微信、qq）中，启用x5播放器播放，但仍会有弹窗效果，视频元素上可覆盖其他元素。
+ 2. options.canCover选项:默认false，设置内联播放，部分安卓机会自动全屏播放，视频元素上无法覆盖其他元素;true时，安卓设备在x5内核浏览器（如微信、qq）中，启用x5播放器播放，但仍会有弹窗效果，视频元素上可覆盖其他元素，视频播放结束后会隐藏video元素来退出x5播放器
  3. options.iosInline选项： 默认false，部分ios浏览器全屏播放(如蜗牛客户端)；true时，视频需要点击其他元素控制播放，点击视频自身播放控件播放时其他方法回调失败。
  4. 建议视频正常播放之前，先引导用户进行一次无意义的点击，执行play() pause()，进行一次视频的播放暂停,使视频在正式播放前预先加载
  5. 设置video currentTime 时，currentTime超出缓存时间时会失败
  6. 在安卓机中，不支持video和audio同时播放，大部分安卓机会暂停播放音频，视频暂停后继续播放；低版本安卓机部分浏览器导致视频黑屏，低版本中可设置禁止音频播放来避免。
  7. 部分客户端中，滑动超出页面时，默认阻止视频播放，需阻止滑动默认事件。
- 8. 监听视频timeupdate事件时，timeupdate事件触发间隔较大，可能会几秒触发一次。需监听视频播放精准位置的话需要手动实时监听视频currentTime
+ 8. 监听视频timeupdate事件时，timeupdate事件触发间隔较大，一般0.2秒左右触发一次。需监听视频播放精准位置的话需要手动实时监听视频currentTime
 
 #### video.play()
     控制视频播放

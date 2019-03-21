@@ -21,6 +21,8 @@ export default class H5video {
         this.controls = options.controls || false;
         this.canCover = options.canCover || false;
         this.iosInline = options.iosInline || false;
+        this.onPlayingCallBack = options.onPlaying || null;
+        this.onEndedCallBack = options.onEnded || null;
         this.video = null;
         this.init();
     }
@@ -57,8 +59,10 @@ export default class H5video {
         }
         this.container.innerHTML += videoHtml
         this.video = document.getElementById('h5video')
-        if(this.controls){this.video.controls = true}
+        if(!this.iosInline && this.controls){this.video.controls = true}
         if(isIphone && this.iosInline){enableInlineVideo(this.video)}
+        if(this.onPlayingCallBack){this.onPlaying(this.onPlayingCallBack)}
+        this.ended(this.onEndedCallBack)
     }
 
     play(){
